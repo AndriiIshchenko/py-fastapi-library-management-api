@@ -11,11 +11,11 @@ def get_authors(db: Session, skip: int = 0, limit: int = 10):
 
 
 def create_author(db: Session, author: schemas.AuthorCreate):
-    db_author = models.Author(name=author.name, bio=author.bio)
-    db.add(db_author)
+    author = models.Author(name=author.name, bio=author.bio)
+    db.add(author)
     db.commit()
-    db.refresh(db_author)
-    return db_author
+    db.refresh(author)
+    return author
 
 
 def get_books(db: Session, skip: int = 0, limit: int = 10):
